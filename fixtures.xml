@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="xpsport2.xsl"?>
+<Fixtures>
+<fixtures field="Football">
+            <match>Belgium v Rep. of Ireland</match>
+            <location>Stade Bollaert-Delelis, Lens</location>
+            <date>Saturday, June 11</date>
+      </fixtures>
+      <fixtures field="Football">
+            <match>Rep. of Ireland v Sweden</match>
+            <location>Stade de France, Paris</location>
+            <date> Monday.13 june 2016</date>
+      </fixtures>
+      <fixtures field="Football">
+       <match> Serbia v Rep. of Ireland</match>
+            <location>Stade Pierre Mauroy, Lille</location>
+            <date>Tuesday, June 14 </date>
+      </fixtures>
+      
+      <fixtures field="Football">
+       <match>Rep. of Ireland v Sweden</match>
+            <location>Stade de Bordeaux,Bordeaux</location>
+            <date> Monday,18  June </date>
+      </fixtures>
+       <fixtures field="Football">
+       <match>Italy v Rep. of Ireland</match>
+            <location>Grand Stade Lille Métropole, Lille</location>
+            <date>Friday, 22 June </date>
+      </fixtures>
+             
+	
+</Fixtures>
+

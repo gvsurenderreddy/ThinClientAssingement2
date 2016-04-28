@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Simple XMLHttpRequest</title>
+<script type="text/javascript">
+var xmlHttp;
+var s ;
+function createXMLHttpRequest() {
+	if (window.ActiveXObject) {
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else if (window.XMLHttpRequest) {
+		xmlHttp = new XMLHttpRequest();
+	}
+}
+
+function startRequest() {
+	try
+	{
+		createXMLHttpRequest();
+		xmlHttp.onreadystatechange = handleStateChange;
+		xmlHttp.open("GET", "phone.xml" , true);
+		xmlHttp.send(null);
+
+	}
+	catch(e)
+	{}
+}
+
+function handleStateChange() {
+	if(xmlHttp.readyState == 4) {
+		if(xmlHttp.status == 200) {
+			            
+        var xml1= xmlHttp.responseXML;
+        
+        var ul = document.createElement('ul');
+        var li ,text;
+        var p=xml1.getElementsByTagName('phone')[0].childNodes;
+        for(var i=0; i<p.length;i++)
+        {
+            if((i%2)!=0)
+            {   
+                li= document.createElement('li');
+                //text= document.createTextNode;
+                li.innerHTML = p[i].nodeValue;
+               // li.appendChild(text);
+                ul.appendChild(li);
+            }
+			}
+        document.getElementById('list').appendChild(ul);
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<form action="#">
+	<input type="button" value="Start Basic Asynchronous Request"
+	onclick="startRequest();"/>
+	</form>
+	<div id='list'></div>
+</body>
+</html>

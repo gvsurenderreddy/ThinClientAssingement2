@@ -1,0 +1,71 @@
+<style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        div#header  {
+            clear: both;
+            height: 70px;
+            background-color: #008898;
+        }
+        div#left  {
+            float: left;
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+        
+       div#right {
+            background-color: green;
+            float: right;
+            width: 200px;
+        }
+        
+        div#right a 
+        {          
+           background-color:Green; /* not working */   
+            color: yellow;
+            float: right;
+            width: 200px;
+        }  
+        div#right a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt1 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt2 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        div#middle {
+            padding: 10px 160px 15px 160px; 
+            background-color: #49d;
+        }
+        div#footer {
+            background-color: yellow;
+            clear: both;
+        }
+        p#main 
+        {
+            font-family: Bell MT;
+            font-size: xx-large; 
+            font:1.8em;
+            color:White;
+        }
+
+    </style>
