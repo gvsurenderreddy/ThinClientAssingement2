@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Assingement 2 layout working document </title>
+    
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+         <script type="javascript" src="jsfunctions.js"></script>
+    
+    <style type="text/css">
+        
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        div#header  {
+            text-align: center;
+            clear: both;
+            height: 70px;
+            background-color: #ccff99
+        }
+        div#left  {
+            float: left;
+            width: 250px;
+            height: 500px;
+            background-color: red;
+        }
+        
+       div#right {
+            background-color: green;
+            float: right;
+            width: 250px;
+            height:500px;
+        }
+        
+        div#right a 
+        {          
+           background-color:Green; /* not working */   
+            color: yellow;
+            float: right;
+            width: 200px;
+        }  
+        div#right a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt1 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt2 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        div#middle {
+            
+            padding: 10px 160px 15px 160px; 
+           background-color: #99ffcc;
+            display: -webkit-flex; 
+    -webkit-justify-content: space-around; 
+    display: flex;
+    justify-content: space-around;
+}
+        
+        div#footer {
+            background-color: yellow;
+            clear: both;
+            -webkit-justify-content: space-around; 
+    display: flex;
+    justify-content: space-around;
+        }
+        p#main 
+        {
+           
+            font-family: Bell MT;
+            font-size: xx-large;
+            font:1.8em;
+            color:White;
+        }
+        p#paragraph
+        {
+            
+            
+           text-align: center; 
+            
+        }
+        ul#matchlist
+        {
+          text-align:center;  
+        }
+        table#tableone {
+            padding: 5px;
+            float: left;
+            width: 25%;
+}
+
+td {
+    height: 65px;
+    vertical-align: bottom;
+}
+       
+        table#tabletwo
+        {
+            padding: 5px;
+            float: right;
+            width: 25%;
+        }
+        th{
+         height: 100px;   
+            
+            
+        }
+        button#btn1
+        {
+            
+        }
+       
+    </style>
+    
+
+
+
+</script>
+
+ 
+</head>
+
+<body>
+    <div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
+    <div id="left">
+        
+        
+    </div>
+    <div id="right">
+        
+    </div>
+    <div id="middle">
+        <div id="middleleft">
+        <table id="tableone"  style="width:25%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+   <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
+    
+  </tr>         
+ <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/SWE.png" alt="Sweden"></img></td>
+    
+  </tr> 
+   <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/ITA.png" alt="Italy"></img></td>
+    
+  </tr>
+</table>
+        </div>
+        <div id="unorderedlistdiv">
+        <ul id="matchlist"</ul>
+        </div>
+        <div id="middleright">
+        <table id="tabletwo" style="width:25%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
+    
+  </tr>
+   <tr>
+       <td><img src="http://img.uefa.com/imgml/flags/50x50/SWE.png" alt="Sweden"></img></td>
+    
+  </tr>         
+ <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr> 
+   <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/ITA.png" alt="Italy"></img></td>
+    
+  </tr>
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/SWE.png" alt="Sweden"></img></td>
+    
+  </tr>
+</table>
+ 
+    </div>
+    
+    </div>
+    <div id="footer" >
+        <button id="btn1" type="submit" value ="match fixtures" onclick="jsfunctions.js"/></button>
+        <!--p id="paragraph">Some more text here  ???</p-->
+    </div>
+</body>
+</html>
+
