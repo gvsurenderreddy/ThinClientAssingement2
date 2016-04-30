@@ -2,27 +2,38 @@
 <?xml-stylesheet type="text/xsl" href="xpsport2.xsl"?>
 <Fixtures>
 <fixtures field="Football">
+    <image1 src= "http://img.uefa.com/imgml/flags/50x50/BEL.png" />
+    <image2 src ="http://img.uefa.com/imgml/flags/50x50/IRL.png"/>
             <match>Belgium v Rep. of Ireland</match>
             <location>Stade Bollaert-Delelis, Lens</location>
             <date>Saturday, June 11</date>
       </fixtures>
-      <fixtures field="Football">
+     
+       <fixtures field="Football">
+          <image1 src="images\ireland.jpg"  ></image1>
+           <image2 src="images\sweden.jpg"></image2>
             <match>Rep. of Ireland v Sweden</match>
             <location>Stade de France, Paris</location>
             <date> Monday.13 june 2016</date>
       </fixtures>
       <fixtures field="Football">
-       <match> Serbia v Rep. of Ireland</match>
+       <image1 src="images\belgium.jpg" />
+       <image2 src="images\sweden.jpg"/>   
+       <match> Sweden v Belgium</match>
             <location>Stade Pierre Mauroy, Lille</location>
             <date>Tuesday, June 14 </date>
       </fixtures>
       
       <fixtures field="Football">
-       <match>Rep. of Ireland v Sweden</match>
+          <image1 src="images\italy.jpg"/>  
+          <image2 src="images\sweden.jpg"/>
+       <match>Italy v Sweden</match>
             <location>Stade de Bordeaux,Bordeaux</location>
             <date> Monday,18  June </date>
       </fixtures>
        <fixtures field="Football">
+           <image1  src="images\italy.jpg"  />
+           <image2 src="images\ireland.jpg"/>
        <match>Italy v Rep. of Ireland</match>
             <location>Grand Stade Lille Métropole, Lille</location>
             <date>Friday, 22 June </date>

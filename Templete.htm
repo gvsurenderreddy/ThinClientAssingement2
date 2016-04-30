@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS Page layout Example</title>
+    <script language="javascript" src="tmp.js" >
+    </script> 
+    <style type="text/css">
+        
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        div#header  {
+            clear: both;
+            height: 70px;
+            background-color: #008898;
+        }
+        div#left  {
+            float: left;
+            width: 200px;
+            height: 500px;
+            background-color: red;
+        }
+        
+       div#right {
+            background-color: green;
+            float: right;
+            width: 200px;
+            height:500px;
+        }
+        
+        div#right a 
+        {          
+           background-color:Green; /* not working */   
+            color: yellow;
+            float: right;
+            width: 200px;
+        }  
+        div#right a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt1 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        a#opt2 a:hover 
+        {          
+           background-color:Maroon; /* now working */   
+            color: red;
+          /*  float: right;
+            width: 200px; */
+        }
+        
+        div#middle {
+            
+            padding: 10px 160px 15px 160px; 
+            background-color: #49d;
+        }
+        div#footer {
+            background-color: yellow;
+            clear: both;
+        }
+        p#main 
+        {
+            font-family: Bell MT;
+            font-size: xx-large;
+            font:1.8em;
+            color:White;
+        }
+        ul#matchlist
+        {
+          text-align:center;  
+        }
+        table#tabletwo
+        {
+            float: right;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+//function getList (){
+$(document).ready(function() {
+	//$("p").click(function(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xmlDoc = xhr.responseXML;
+            var team =
+                xmlDoc.getElementsByTagName("fixtures");
+            var html = "";
+            for (i = 0; i < team.length; i++) {
+                html += 
+                    //xmlDoc.getElementsByTagName("image1")[i].childNodes[0].nodeValue + "<br>" +    
+                    xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>" +
+                   //xmlDoc.getElementsByTagName("image2")[i].childNodes[0].nodeValue + "<br>" +//
+                    xmlDoc.getElementsByTagName("location")[i] .childNodes[0].nodeValue + "<br>" + 
+                    xmlDoc.getElementsByTagName("date")[i] .childNodes[0].nodeValue + "<br><br>"; 
+			}
+            document.getElementById("matchlist").innerHTML = html;
+            
+        }
+    }
+    xhr.open("GET", "fixtures.xml", true);
+    xhr.send();
+
+});
+</script>
+
+ 
+</head>
+
+<body>
+    <div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
+    <div id="left">
+        
+        
+    </div>
+    <div id="right">
+        
+    </div>
+    <div id="middle">
+        <table style="width:25%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+   <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
+    
+  </tr>         
+ <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/SWE.png" alt="Sweden"></img></td>
+    
+  </tr> 
+   <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/ITA.png" alt="Italy"></img></td>
+    
+  </tr>
+</table>
+        
+        <ul id="matchlist"</ul>
+        <table id="tabletwo" style="width:25%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+   <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
+    
+  </tr>         
+ <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/SWE.png" alt="Sweden"></img></td>
+    
+  </tr> 
+   <tr>
+     <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/ITA.png" alt="Italy"></img></td>
+    
+  </tr>
+</table>
+ 
+    </div>
+    
+    </div>
+    <div id="footer" onclick="writeinDiv();">
+        <p>Do I want to set a message in footer here ???</p>
+    </div>
+</body>
+</html>
+
