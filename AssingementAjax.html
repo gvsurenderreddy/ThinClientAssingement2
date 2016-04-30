@@ -4,17 +4,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <style>
- #header{
+ body {
+            margin: 0px;
+            padding: 0px;
+        }
+     
+     #header{
+ 
+ text-align:center;
+ clear: both;
+            height: 70px;
+            background-color: #ffcc66;
+ 
+ }
+ 
+  #middle{
  
  text-align:center;
  
  }
+ div#left  {
+            padding: 10px 80px 15px 80px;
+            float: left;
+            background-color: green;
+          
+            width: 200px;
+            height: 500px;
+            
+        
+        }
+        
+div#right {
+    float: right;
+    background-color: #66ffcc;
+           
+            width: 200px;
+            height: 500px;
+        }
+        
+   div#middle {
+            padding: 10px 160px 15px 160px; 
+            background-color: #49d;
+        }
+        div#footer {
+            padding: 10px 160px 15px 160px;
+            background-color: yellow;
+            clear: both;
+        }
+        p#main 
+        {
+            font-family: Bell MT;
+            font-size: xx-large;
+            font:1.8em;
+            color:White;
+        }
+        
  
- #middle{
- 
- text-align:center;
- 
- }
+ /*  
+ ul#matchlist {
+    list-style-image: "url('http://img.uefa.com/imgml/flags/50x50/BEL.png')";
+}
+*/
+       
  
  </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -34,25 +85,57 @@ $(document).ready(function() {
             var html = "";
             for (i = 0; i < team.length; i++) {
                 html += 
+                    //xmlDoc.getElementsByTagName("image1")[i].childNodes[0].nodeValue + "<br>" +    
                     xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>" +
+                   //xmlDoc.getElementsByTagName("image2")[i].childNodes[0].nodeValue + "<br>" +//
                     xmlDoc.getElementsByTagName("location")[i] .childNodes[0].nodeValue + "<br>" + 
                     xmlDoc.getElementsByTagName("date")[i] .childNodes[0].nodeValue + "<br><br>"; 
 			}
             document.getElementById("matchlist").innerHTML = html;
+            
         }
     }
     xhr.open("GET", "fixtures.xml", true);
     xhr.send();
-});
 
+});
 </script>
 
 </head>
 <body>
 <div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
-<div id = "middle"  >
+<div id = "left">
+    <table style="width:100%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
+    
+  </tr>
+ 
+</table>
+    
+    
+    
+</div>
 
-<ul id="matchlist" ></ul>
+
+<div id = "middle"  >
+  
+  <ul id="matchlist"</ul>
+                
+</div> 
+<div id="right">
+     <table style="width:100%">
+  <tr>
+      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
+    
+  </tr>
+ 
+</table>
+    
+    </div>
+<div id="footer" onclick="writeinDiv();">
+        <p>Do I want to set a message in footer here ???</p>
+    </div>
 </div>
 </body>
 </html>
