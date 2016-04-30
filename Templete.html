@@ -76,6 +76,8 @@
         
         div#footer {
             background-color: yellow;
+          /*  width: 250px;*/
+            height:50px;
             clear: both;
             -webkit-justify-content: space-around; 
     display: flex;
@@ -124,7 +126,8 @@ td {
         }
         button#btn1
         {
-            
+            height: 50px;
+            width: 100px;
         }
        
     </style>
@@ -141,7 +144,7 @@ td {
     <div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
     <div id="left">
         
-        
+        <div id="twitter"></div><!--This will receive the twitter  feed data 23:59 30.04.16  -->
     </div>
     <div id="right">
         
@@ -202,8 +205,11 @@ td {
     
     </div>
     <div id="footer" >
-        <button id="btn1" type="submit" value ="match fixtures" onclick="jsfunctions.js"/></button>
+        <form action="jsfunctions.js">
+        <button  type="submit"  onclick="getFixtures();">match fixtures</button>
+            
         <!--p id="paragraph">Some more text here  ???</p-->
+        </form>
     </div>
 </body>
 </html>
