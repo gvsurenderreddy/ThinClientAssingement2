@@ -1,141 +1,110 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
- <style>
- body {
-            margin: 0px;
-            padding: 0px;
-        }
-     
-     #header{
- 
- text-align:center;
- clear: both;
-            height: 70px;
-            background-color: #ffcc66;
- 
- }
- 
-  #middle{
- 
- text-align:center;
- 
- }
- div#left  {
-            padding: 10px 80px 15px 80px;
-            float: left;
-            background-color: green;
-          
-            width: 200px;
-            height: 500px;
-            
-        
-        }
-        
-div#right {
-    float: right;
-    background-color: #66ffcc;
-           
-            width: 200px;
-            height: 500px;
-        }
-        
-   div#middle {
-            padding: 10px 160px 15px 160px; 
-            background-color: #49d;
-        }
-        div#footer {
-            padding: 10px 160px 15px 160px;
-            background-color: yellow;
-            clear: both;
-        }
-        p#main 
-        {
-            font-family: Bell MT;
-            font-size: xx-large;
-            font:1.8em;
-            color:White;
-        }
-        
- 
- /*  
- ul#matchlist {
-    list-style-image: "url('http://img.uefa.com/imgml/flags/50x50/BEL.png')";
-}
-*/
-       
- 
- </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script type="text/javascript">
+    <head>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            #header{
+                text-align:center;
+                clear: both;
+                height: 70px;
+                background-color: #ffcc66;
+            }
+            #middle{
+                text-align:center;
+            }
+            div#left  {
+                float: left;
+                background-color: green;
+                width: 200px;
+                height: 500px;
+            }
+            div#right {
+                float: right;
+                background-color: #66ffcc;
 
-
-
-//function getList (){
-$(document).ready(function() {
-	//$("p").click(function(){
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xmlDoc = xhr.responseXML;
-            var team =
-                xmlDoc.getElementsByTagName("fixtures");
-            var html = "";
-            for (i = 0; i < team.length; i++) {
-                html += 
-                    //xmlDoc.getElementsByTagName("image1")[i].childNodes[0].nodeValue + "<br>" +    
-                    xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>" +
-                   //xmlDoc.getElementsByTagName("image2")[i].childNodes[0].nodeValue + "<br>" +//
-                    xmlDoc.getElementsByTagName("location")[i] .childNodes[0].nodeValue + "<br>" + 
-                    xmlDoc.getElementsByTagName("date")[i] .childNodes[0].nodeValue + "<br><br>"; 
-			}
-            document.getElementById("matchlist").innerHTML = html;
-            
-        }
-    }
-    xhr.open("GET", "fixtures.xml", true);
-    xhr.send();
-
-});
-</script>
-
-</head>
-<body>
-<div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
-<div id = "left">
-    <table style="width:100%">
-  <tr>
-      <td><img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img></td>
-    
-  </tr>
- 
-</table>
-    
-    
-    
-</div>
-
-
-<div id = "middle"  >
-  
-  <ul id="matchlist"</ul>
-                
-</div> 
-<div id="right">
-     <table style="width:100%">
-  <tr>
-      <td><img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img></td>
-    
-  </tr>
- 
-</table>
-    
-    </div>
-<div id="footer" onclick="writeinDiv();">
-        <p>Do I want to set a message in footer here ???</p>
-    </div>
-</div>
-</body>
+                width: 200px;
+                height: 500px;
+            }
+            div#middle {
+                background-color: #49d;
+                height: 500px
+            }
+            div#footer {
+                padding: 10px 160px 15px 160px;
+                background-color: yellow;
+                clear: both;
+            }
+            p#main 
+            {
+                font-family: Bell MT;
+                font-size: xx-large;
+                font:1.8em;
+                color:White;
+            }
+            img.flag20 {
+                height: 20px;
+                width: 20px;
+            }
+            ul {
+                padding: 0px 0px 0px 0px;
+                margin: 0px;
+                list-style-type: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //$("p").click(function(){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var xmlDoc = xhr.responseXML;
+                        var fixtures = xmlDoc.getElementsByTagName("fixtures");
+                        var html = "";
+                        for (i = 0; i < fixtures.length; i++) {
+                            html += "<li>";
+                            html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image1")[i].getAttribute("src") + "\"/>";
+                            html += xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue;
+                            html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image2")[i].getAttribute("src") + "\"/><br>";
+                            html += xmlDoc.getElementsByTagName("location")[i].childNodes[0].nodeValue + "<br>";
+                            html += xmlDoc.getElementsByTagName("date")[i].childNodes[0].nodeValue +  "<br>" + "<br>";
+                            html += "</li>";
+                        }
+                        document.getElementById("matchlist").innerHTML = html;
+                    }
+                }
+                xhr.open("GET", "fixtures.xml", true);
+                xhr.send();
+            });
+        </script>
+    </head>
+    <body>
+        <div id = "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
+        <div id = "left">
+            <table style="width:100%">
+                <tr>
+                    <td><!--<img src="http://img.uefa.com/imgml/flags/50x50/BEL.png" alt="Belgium"></img>--></td>
+                </tr>
+            </table>
+        </div>
+        <div id="right">
+            <table style="width:100%">
+                <tr>
+                    <td><!--<img src="http://img.uefa.com/imgml/flags/50x50/IRL.png" alt="Republic of Ireland"></img>--></td>
+                </tr>
+            </table>
+        </div>
+        <div id = "middle"  >
+            <ul id="matchlist"</ul>
+        </div> 
+        <div id="footer" onclick="writeinDiv();">
+            <p>Do I want to set a message in footer here ???</p>
+        </div>
+        </div>
+    </body>
 </html>

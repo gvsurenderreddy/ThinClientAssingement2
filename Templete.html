@@ -131,12 +131,43 @@ td {
         }
        
     </style>
+    <script>
+      $(document).ready(function(){ 
+    $("#p1").click(getFixtures);
+     
+     function getFixtures(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xmlDoc = xhr.responseXML;
+            var team =
+                xmlDoc.getElementsByTagName("fixtures" );
+            var html = "";
+            for (i = 0; i < team.length; i++) {
+                html += 
+                    //xmlDoc.getElementsByTagName("image1")[i].childNodes[0].nodeValue + "<br>" +    
+                    xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>" +
+                   //xmlDoc.getElementsByTagName("image2")[i].childNodes[0].nodeValue + "<br>" +//
+                    xmlDoc.getElementsByTagName("location")[i] .childNodes[0].nodeValue + "<br>" + 
+                    xmlDoc.getElementsByTagName("date")[i] .childNodes[0].nodeValue + "<br><br>"; 
+			}
+            document.getElementById("matchlist").innerHTML = html;
+            
+        }
+    }
+    xhr.open("GET", /*"fixtures.xml", */"matchdatesandtimes.xml", true);
+    xhr.send();
+
+    }});
+   
+        
+        
+        
+        
+      
+    </script>
     
-
-
-
-</script>
-
+  
  
 </head>
 
@@ -205,11 +236,11 @@ td {
     
     </div>
     <div id="footer" >
-        <form action="jsfunctions.js">
-        <button  type="submit"  onclick="getFixtures();">match fixtures</button>
+        
+        <p id="p1" >match fixtures</p>
             
-        <!--p id="paragraph">Some more text here  ???</p-->
-        </form>
+        
+       
     </div>
 </body>
 </html>
