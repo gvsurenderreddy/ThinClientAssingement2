@@ -10,10 +10,12 @@ and open the template in the editor.
         <title>UEFA European Championship 2016 Final Tournament - Group Stage</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script src="rssfeed.js"/></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script onload="https://localhostThinClientAssingement2/getFixturesDescending.js"></script>
         <style>
-             body {
+            body {
                 margin: 0px;
                 padding: 0px;
             }
@@ -23,10 +25,12 @@ and open the template in the editor.
                 height: 70px;
                 background-color: #ffcc66;
             }
+            /*
             #middle{
                 text-align:center;
-                
+
             }
+            */
             div#left  {
                 float: left;
                 background-color: green;
@@ -41,8 +45,11 @@ and open the template in the editor.
                 height: 500px;
             }
             div#middle {
-                background-color: #49d;
-                height: 500px
+             
+             background-color: coral;
+                height: 500px;
+              
+    
             }
             div#footer {
                 padding: 10px 160px 15px 160px;
@@ -50,8 +57,8 @@ and open the template in the editor.
                 clear: both;
                 height: 150pk;
                 width: 100pk;
-                 display: -webkit-flex; 
-    
+                display: -webkit-flex; 
+
             }
             p#main 
             {
@@ -64,101 +71,131 @@ and open the template in the editor.
                 height: 20px;
                 width: 20px;
             }
-             ul{
+            ul#matchlist{
+               
                 padding: 0px 0px 0px 0px;
-                margin: 0px;
-                
+                margin: 0px; 
+
             }
-           button{
-                
+            button{
+
                 background-color: #99ffff;
                 height: 60px;
                 width: 100px;
-             /*   display: -webkit-flex; /*Just added this */
+                
             }
             button#p1{
                 float: left;
-                
-          /*      
+
             }
-            button#p2{
-                float: right;
-                
-                
+            
+            button#buttongroup {
+                float: left;
             }
-            */
-            
-        </style>
-        <script>
-            $(document).ready(function() {
-     $("#p1").click(getFixtures);
-     
-     function getFixtures(){
-    
-	
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xmlDoc = xhr.responseXML;
-            var team =
-                xmlDoc.getElementsByTagName("fixtures");
-            var html = "";
-            for (i = 0; i < team.length; i++)  {
-                html += "<ul style= 'list-style-type:none'>";
-                html += "<li>";
-                html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image1")[i].getAttribute("src") + "\"/>";    
-                html +=  xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>";
-                html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image2")[i].getAttribute("src") + "\"/><br>";
-                html += xmlDoc.getElementsByTagName("date")[i] .childNodes[0].nodeValue + "<br><br>";
-                html += "</li>";
-                html += "</ul>";
-			}
-            document.getElementById("matchlist").innerHTML = html;
-            
-        }
-    };
-    xhr.open("GET", "fixtures.xml", true);
-    xhr.send();
-    
-   
-}});
+
+            </style>
+            <script>
+/*
+                $(document).ready(function () {
+                    $("#p1").click(getFixtures);
+                    function getFixtures() {
+
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                xmlDoc = xhr.responseXML;
+                                var team =
+                                        xmlDoc.getElementsByTagName("fixtures");
+                                var html = "";
+                                for (i = 0; i < team.length; i++) {
+                                    html += "<ul style= 'list-style-type:none'>";
+                                    html += "<li>";
+                                    html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image1")[i].getAttribute("src") + "\"/>";
+                                    html += xmlDoc.getElementsByTagName("match")[i].childNodes[0].nodeValue + "<br>";
+                                    html += "<img class=\"flag20\" src=\"" + xmlDoc.getElementsByTagName("image2")[i].getAttribute("src") + "\"/><br>";
+                                    html += xmlDoc.getElementsByTagName("date")[i].childNodes[0].nodeValue + "<br><br>";
+                                    html += "</li>";
+                                    html += "</ul>";
+                                }
+                                document.getElementById("matchlist").innerHTML = html;
+                            }
+                        };
+                        xhr.open("GET", "fixtures.xml", true);
+                        xhr.send();
+                    }}
+                );
+        
+*/
+                function loadXMLDoc(filename)
+                {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.open("GET", filename, false);
+                    xhttp.send("");
+                    return xhttp.responseXML;
+                }
+
+                function LoadFixtures(order) {
+                    xml = loadXMLDoc("fixtures.xml");
+                    if (order == "desc") {
+                        xsl = loadXMLDoc("fixtures.xsl");
+                    } else {
+                        xsl = loadXMLDoc("fixtures_1.xsl");
+
+                    }
+                    xsltProcessor = new XSLTProcessor();
+                    xsltProcessor.importStylesheet(xsl);
+                    resultDocument = xsltProcessor.transformToFragment(xml, document);
+                    document.getElementById("matchlist").innerHTML = "";
+                    document.getElementById("matchlist").appendChild(resultDocument);
+                }
 
 
 
-            
-            
-        </script>
-        <script>
-             $(document).ready(function() {
-     $("#p2 ").click(getFixtures);
-     
-     function getFixtures(){
-    
-  
-            
-        </script>
-        
-       
-    </head>
-    <body>
-        
-        <div id= "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
-        <div id = "left">
-            
-          
-        </div>
-        <div id="right">
-         
-        </div>
-        <div id = "middle"  >
-            <ul id="matchlist"></ul>
-        </div> 
-        <div id="footer">
-            <button id="p1" type="submit" >Sort in Descending order</button>
-             <button id="p2" onclick="loadXMLDoc(dname);">Sort in Ascending order</button>
-          
-        </div>
-        
-    </body>
-    
-</html>
+            </script>
+            <!--
+            <script>
+                $(document).ready(function() {
+                $("#p2 ").click(getFixtures);
+                        function getFixtures(){
+
+
+            </script>
+-->
+
+
+        </head>
+        <body onload="LoadFixtures()">
+
+            <div id= "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
+            <div id = "left">
+<a href="https://twitter.com/QuinnTony1975" class="twitter-follow-button" data-show-count="false">Follow @QuinnTony1975</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+            </div>
+            <div id="right">
+                <div id="buttongroup" onchange="" >
+                
+                    <button id="irishindependentrssfeed" onclick="irishindependentrssfeed.js"><img src= "images/rss_logo.png" alt="independent" width="40" height="40" />Irish Independent</button> 
+               <button id= "rtenewsfeed" onclick="rtenewsrssfeed.js"><img  src= "images/rss_logo.png" alt="rte" width="40" height="40"/> RTE News </button>
+               <button id="irishtimes" onmouseover="irishtimesrssfeed.js"><img src= "images/rss_logo.png" alt="irishtimes" width="40" height="40"/> Irish Times </button>
+                </div>
+                    <div id="weather">
+                
+                </div>
+               <div id="feed"></div>
+            </div>
+            <div id = "middle"  >
+                <ul id="matchlist" ></ul>
+            </div> 
+            <div id="footer">
+                <button id="p1" onclick="LoadFixtures('desc');">Sort in Descending order</button>
+                <button id="p2" onclick="LoadFixtures('asc');">Sort in Ascending order</button>
+
+            </div>
+
+        </body>
+
+    </html>
