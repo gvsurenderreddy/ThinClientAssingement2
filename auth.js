@@ -62,4 +62,4 @@ function loadAPIClientInterfaces() {
   });
 }
 
-alert("Testing in auth.js @21:45 after last function");
+/* alert("Testing in auth.js @21:45 after last function"); */
