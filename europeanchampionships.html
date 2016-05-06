@@ -10,10 +10,17 @@ and open the template in the editor.
         <title>UEFA European Championship 2016 Final Tournament - Group Stage</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="auth.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script src="rssfeed.js"/></script>
+        <script  type="text/javascript" src="rte_news_rss_feed.js" ></script>
+        <script type="text/javascript" src="irish_independent_rss_feed.js"></script>
+        <script type="text/javascript" src="irish_times_rss_feed.js"></script>
+        <script type="text/javascript" src="italian_weather_rss_feed.js"></script>
+        <script type="text/javascript" src="irish_weather_rss_feed.js"></script>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script onload="https://localhostThinClientAssingement2/getFixturesDescending.js"></script>
+        <link rel="stylesheet" type="text/css" href="span.css">
         <link rel="stylesheet" type="text/css" href="rssbuttongroup.css">
         <style>
             body {
@@ -26,12 +33,7 @@ and open the template in the editor.
                 height: 70px;
                 background-color: #ffcc66;
             }
-            /*
-            #middle{
-                text-align:center;
-
-            }
-            */
+            
             div#left  {
                 float: left;
                 background-color: green;
@@ -168,7 +170,7 @@ and open the template in the editor.
         </head>
         <body onload="LoadFixtures()">
 
-            <div><img src="images/UEFA.Logo.png" alt="UEFA logo"  width="20" height="20"/></div><div id= "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
+            <div><!--img src="images/UEFA.Logo.png" alt="UEFA logo"  width="20" height="20"/--></div><div id= "header"><h1>UEFA European Championship 2016 Final Tournament - Group Stage</h1></div>
             <div id = "left">
 <a href="https://twitter.com/QuinnTony1975" class="twitter-follow-button" data-show-count="false">Follow @QuinnTony1975</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
@@ -177,17 +179,17 @@ and open the template in the editor.
 
             </div>
            <!-- <div w3-include-html="buttontester.html"></div>-->
-            <div id="right">
+           <div id="right" >
                 
             
                 
-                <div id="buttongroup" onchange="" >
+                <div id="buttongroup"  >
                 
-                    <button id="irishindependentrssfeed" onclick="irishindependentrssfeed.js"><img src= "images/rss_logo.png" alt="independent" width="40" height="40" />Irish Independent</button> 
-               <button id= "rtenewsfeed" onclick="rtenewsrssfeed.js"><img  src= "images/rss_logo.png" alt="rte" width="40" height="40"/> RTE News </button>
-               <button id="irishtimes" onmouseover="irishtimesrssfeed.js"><img src= "images/rss_logo.png" alt="irishtimes" width="40" height="40"/> Irish Times </button>
+                    <button id="irishindependentrssfeed" onclick="initalize3();" ><!--img src= "images/rss_logo.png" alt="independent" width="40" height="40" -->Irish Independent</button> 
+               <button id= "rtenewsfeed" onclick="initalize1();"><!--img  src= "images/rss_logo.png" alt="rte" width="40" height="40"--> RTE News </button>
+               <button id="irishtimes" onclick="initalize2();"><!--img src= "images/rss_logo.png" alt="irishtimes" width="40" height="40"--> Irish Times </button>
                 </div>
-                    <div id="weather">
+               <div id="weather" onload="auth.js"  /> 
                 
                 </div>
                <div id="feed"></div>

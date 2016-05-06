@@ -21,8 +21,11 @@
           var container = document.getElementById("weatherfeed");
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
+            var span = document.createElement("span");
             var div = document.createElement("div");
+             span.appendChild(document.createTextNode("Italian  weather"));
             div.appendChild(document.createTextNode(entry.title));
+            container.appendChild(span);
             container.appendChild(div);
           }
         }
